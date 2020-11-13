@@ -13,9 +13,9 @@
     </js-module>
 
     <engines>
-        <engine name="cordova" version=">=10.0.0"/>
-        <engine name="cordova-android" version=">=9.0.0"/>
-        <engine name="cordova-ios" version=">=6.1.0"/>
+        <engine name="cordova" version=">=7.0.0"/>
+        <engine name="cordova-android" version=">=6.3.0"/>
+        <engine name="cordova-ios" version=">=4.4.0"/>
     </engines>
 
     <!-- Necessary to set app name for incoming call notifications on Android and CallKit on iOS -->
@@ -97,6 +97,7 @@
           </feature>
         </config-file>
 
+        <framework src="TwilioVoice" type="podspec" spec="5.5.1" /> 
         <framework src="SystemConfiguration.framework" />
         <framework src="AudioToolbox.framework" />
         <framework src="AVFoundation.framework" />
@@ -154,7 +155,7 @@
         <info>
 
         </info>
-        <podspec>
+ <!--       <podspec>
           <config>
             <source url="https://github.com/CocoaPods/Specs.git"/>
           </config>
@@ -162,5 +163,6 @@
             <pod name="TwilioVoice" spec="~> 5.5.1" />
           </pods>
         </podspec>
+        -->
     </platform>
 </plugin>
