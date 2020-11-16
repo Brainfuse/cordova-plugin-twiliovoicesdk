@@ -285,10 +285,8 @@ public class TwilioVoicePlugin extends CordovaPlugin {
             public void run() {
                 try {
                     String accessToken = arguments.getString(0);
-                    String number = arguments.getString(1);
-                    Map<String, String> map = new HashMap();
-                    map.put("To", number);
-                    map.put("accessToken", accessToken);
+                    JSONObject params = arguments.getJSONObject(1);
+                    Map<String, String> map = toMap(params);
 
                     ConnectOptions connectOptions = new ConnectOptions.Builder(accessToken)
                             .params(map)
@@ -300,6 +298,16 @@ public class TwilioVoicePlugin extends CordovaPlugin {
             }
         });
 
+    }
+    
+    private Map<String, String> toMap(JSONObject jsonobj)  throws JSONException {
+        Map<String, String> map = new HashMap<String, String>();
+        Iterator<String> keys = jsonobj.keys();
+        while(keys.hasNext()) {
+            String key = keys.next();
+            String value = (String)jsonobj.get(key);
+            map.put(key, value);
+        }   return map;
     }
 
     private void acceptCallInvite(JSONArray arguments, final CallbackContext callbackContext) {
