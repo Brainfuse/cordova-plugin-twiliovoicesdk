@@ -79,7 +79,7 @@ static NSString *const kTwimlParamTo = @"To";
     if ([enableCallKitPreference isEqualToString:@"YES"] || [enableCallKitPreference isEqualToString:@"TRUE"]) {
         self.enableCallKit = YES;
     } else {
-        self.enableCallKit = YES;
+        self.enableCallKit = NO;
     }
         
     if (self.enableCallKit) {
